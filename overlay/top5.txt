@@ -1,0 +1,3 @@
+Scoreboard:
+mi_thom: 249
+id:test: 6

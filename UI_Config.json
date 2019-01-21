@@ -1,0 +1,208 @@
+{
+  "output_file": "Settings\\csgoBet_settings.json",
+  "bet_command": {
+    "type": "textbox",
+    "value": "!bet",
+    "label": "bet command",
+    "tooltip": "command for users to bet",
+    "group": "command names"
+  },
+  "start_command": {
+    "type": "textbox",
+    "value": "!startBet",
+    "label": "start command",
+    "tooltip": "command to open the betting",
+    "group": "command names"
+  },
+  "stop_command": {
+    "type": "textbox",
+    "value": "!stopBet",
+    "label": "stop command",
+    "tooltip": "command to close the betting",
+    "group": "command names"
+  },
+  "got_command": {
+    "type": "textbox",
+    "value": "!got",
+    "label": "got command",
+    "tooltip": "command to decide who wins",
+    "group": "command names"
+  },
+  "redeem_command": {
+    "type": "textbox",
+    "value": "!redeem",
+    "label": "redeem command",
+    "tooltip": "command to daily gain points",
+    "group": "command names"
+  },
+  "start_permission": {
+    "type": "dropdown",
+    "value": "Caster",
+    "label": "required create permission",
+    "tooltip": "required permission type (minimum) to create a character",
+    "group": "config",
+    "items": [
+      "Everyone",
+      "Regular",
+      "Subscriber",
+      "GameWisp_Subscriber",
+      "User_Specific",
+      "Min_Rank",
+      "Min_Points",
+      "Min_Hours",
+      "Moderator",
+      "Editor",
+      "Caster"
+    ]
+  },
+  "start_permission_info": {
+    "type": "textbox",
+    "value": "",
+    "label": "create permission info",
+    "tooltip": "extra info, eg: 10 (for Min_Hours) or: Rank1 (for Min_Rank)\r\nleave empty for most types",
+    "group": "config"
+  },
+  "update_interval":{
+    "type":"numberbox",
+    "value":60,
+    "label":"game interval",
+    "tooltip":"time in between checks for stream online",
+    "group":"config"
+  },
+  "add_me":{
+    "type":"checkbox",
+    "value":true,
+    "label":"add /me before messages",
+    "tooltip":"on twitch, this shows the messages in the color from the chatbot",
+    "group":"config"
+  },
+  "follow_redeem": {
+    "type": "numberbox",
+    "value": 100,
+    "label": "follower redeem amount",
+    "tooltip": "amount a follower can redeem daily",
+    "group": "config"
+  },
+  "sub_redeem": {
+    "type": "numberbox",
+    "value": 300,
+    "label": "subscriber redeem amount",
+    "tooltip": "amount a subscriber can redeem daily",
+    "group": "config"
+  },
+  "others_message": {
+    "type": "textbox",
+    "value": "{0}, follow to get daily {1} or sub for {2}!",
+    "label": "message for non-follower redeem",
+    "tooltip": "message that will be displayed when non follower tries to redeem\n{0} = username\n{1} = follower amount\n{2} = sub amount",
+    "group": "config"
+  },
+  "results_title": {
+    "type": "textbox",
+    "value": "Results:",
+    "label": "overlay results title",
+    "tooltip": "line that will be shown as first line of game results files",
+    "group": "config"
+  },
+  "scoreboard_title": {
+    "type": "textbox",
+    "value": "Scoreboard:",
+    "label": "overlay scoreboard title",
+    "tooltip": "line that will be shown as first line of scoreboard files",
+    "group": "config"
+  },
+  "batch_redeem_msg": {
+    "type": "textbox",
+    "value": "successful redeems: ",
+    "label": "batch redeem response",
+    "tooltip": "response for succesfull redeem\nusers will be append after batching",
+    "group": "config"
+  },
+  "currently_no_bet_msg": {
+    "type": "textbox",
+    "value": '{0}, you cannot currently bet.',
+    "label": "currently no betting msg",
+    "tooltip": "when a player cannot bet currentlye\n{0} = username",
+    "group": "config"
+  },
+  "not_enough_points_msg": {
+    "type": "textbox",
+    "value": "{0} you don't have so many points!",
+    "label": "not enough points message",
+    "tooltip": "failed bet due to not enough points\n{0} = username",
+    "group": "config"
+  },
+  "already_betted": {
+    "type": "textbox",
+    "value": "{0}, you already placed a bet on that place for this game (#{1})",
+    "label": "already betted msg",
+    "tooltip": "failed bet due to already better on that place\n{0} = username\n{1} = current game number",
+    "group": "config"
+  },
+  "batch_bet_msg": {
+    "type": "textbox",
+    "value": "successful bets:,",
+    "label": "batch succesfull bet msg",
+    "tooltip": "batch response for betting, player names will be appended after batching",
+    "group": "config"
+  },
+  "processing_game": {
+    "type": "textbox",
+    "value": "distirbuting gold...",
+    "label": "processing game msg",
+    "tooltip": "Points are distributed asynchronous.\nThis message needs to make that clear",
+    "group": "config"
+  },
+  "already_redeemed": {
+    "type": "textbox",
+    "value": "{0}, you already redeemed today!",
+    "label": "already redeemed msg",
+    "tooltip": "failed redeem due to multiple attempts in 1 session.\n{0} = username",
+    "group": "config"
+  },
+  "offline_redeem": {
+    "type": "textbox",
+    "value": "{0}, you can only redeem when the streamer is online",
+    "label": "offline redeem attempt msg",
+    "tooltip": "failed redeem due streamer offline.\n{0} = username",
+    "group": "config"
+  },
+  "end_betting": {
+    "type": "textbox",
+    "value": "betting for game #{0} has closed. please wait until it ends for the results",
+    "label": "stop betting msg",
+    "tooltip": "!stopBet success response\n{0} = game number",
+    "group": "config"
+  },
+  "start_betting": {
+    "type": "textbox",
+    "value": "viewers can now bet on game #{0} using !bet place amount",
+    "label": "start betting msg",
+    "tooltip": "!startBet success response\n{0} = game number",
+    "group": "config"
+  },
+  "restart_session": {
+    "type": "button",
+    "label": "start new session",
+    "tooltip": "this will make so that everyone can redeem again.\nNormally this happens automatically when stream is offline for 30 minutes",
+    "function": "StartNewSession",
+    "wsevent": "",
+    "group": "buttons"
+  },
+  "open_folder": {
+    "type": "button",
+    "label": "open overlay folder",
+    "tooltip": "here you find the files you can use as an overlay",
+    "function": "OpenOverlayFolder",
+    "wsevent": "",
+    "group": "buttons"
+  },
+  "reset": {
+    "type": "button",
+    "label": "Reset Database - Press 5 times in 5s",
+    "tooltip": "the whole game will be reset, only data files are kept\n all scores will vanish!",
+    "function": "ResetDatabase",
+    "wsevent": "",
+    "group": "buttons"
+  }
+}
