@@ -28,6 +28,7 @@ class Settings(object):
             self.start_permission = "Caster"
             self.start_permission_info = ""
             self.update_interval = 30
+            self.max_votes = 5
             self.add_me = True
             self.follow_redeem = 100
             self.sub_redeem = 300
@@ -44,6 +45,7 @@ class Settings(object):
             self.offline_redeem = "{0}, you can only redeem when the streamer is online"
             self.end_betting = "betting for game #{0} has closed. please wait until it ends for the results"
             self.start_betting = "viewers can now bet on game #{0} using !bet place amount"
+            self.max_bet_limit_msg = "{0}, you can have a maximum of up to {1} votes"
 
     def reload(self, json_data):
         """ Reload settings from Chatbot user interface by given json data. """

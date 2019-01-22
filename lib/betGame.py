@@ -219,13 +219,17 @@ class StreamSession(object):
                 amount = int(amount)
             except ValueError:
                 return
-            if amount > 0 and place > 0 and Parent.RemovePoints(user_id, username, amount):
-                try:
-                    Bet.create(self.current_game, user_id, place, amount, conn)
-                    return self.add_better(username)
-                except sqlite3.IntegrityError:
-                    return self.scriptSettings.already_betted, username, self.current_game.nb
-            return self.scriptSettings.not_enough_points_msg, username
+            if amount > 0 and place > 0:
+                if Bet.count_by_player_and_game(user_id, self.current_game.id_, conn) < self.scriptSettings.max_votes:
+                    if Parent.RemovePoints(user_id, username, amount):
+                        try:
+                            Bet.create(self.current_game, user_id, place, amount, conn)
+                            return self.add_better(username)
+                        except sqlite3.IntegrityError:
+                            return self.scriptSettings.already_betted, username, self.current_game.nb
+                    return self.scriptSettings.not_enough_points_msg, username
+                return self.scriptSettings.max_bet_limit_msg, username, self.scriptSettings.max_votes
+            # ignore invalid bets, this is noticed by not getting a confirmation
         else:
             return self.scriptSettings.currently_no_bet_msg, username
 
@@ -336,6 +340,11 @@ class Bet(object):
     @classmethod
     def find_total_by_game(cls, game_id, conn):
         cursor = conn.execute("""SELECT SUM(amount) FROM bets WHERE game_id = ?""", (game_id,))
+        return cursor.fetchone()[0]
+
+    @classmethod
+    def count_by_player_and_game(cls, user_id, game_id, conn):
+        cursor = conn.execute("""SELECT COUNT(*) FROM bets WHERE user_id = ? and game_id = ?""", (user_id, game_id,))
         return cursor.fetchone()[0]
 
     @classmethod

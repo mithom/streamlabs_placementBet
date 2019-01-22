@@ -69,6 +69,13 @@
     "tooltip":"time in between checks for stream online",
     "group":"config"
   },
+  "max_votes":{
+    "type":"numberbox",
+    "value":5,
+    "label":"max votes each",
+    "tooltip":"maximum of different votes per person",
+    "group":"config"
+  },
   "add_me":{
     "type":"checkbox",
     "value":true,
@@ -120,7 +127,7 @@
   },
   "currently_no_bet_msg": {
     "type": "textbox",
-    "value": '{0}, you cannot currently bet.',
+    "value": "{0}, you cannot currently bet.",
     "label": "currently no betting msg",
     "tooltip": "when a player cannot bet currentlye\n{0} = username",
     "group": "config"
@@ -179,6 +186,13 @@
     "value": "viewers can now bet on game #{0} using !bet place amount",
     "label": "start betting msg",
     "tooltip": "!startBet success response\n{0} = game number",
+    "group": "config"
+  },
+  "max_bet_limit_msg": {
+    "type": "textbox",
+    "value": "{0}, you can have a maximum of up to {1} votes",
+    "label": "max bet limit msg",
+    "tooltip": "!bet fail response on too many votes\n{0} = username\n{1} = max number of votes",
     "group": "config"
   },
   "restart_session": {
